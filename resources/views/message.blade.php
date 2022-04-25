@@ -15,7 +15,6 @@
                <h1>{{ $message }} </h1>
             </div>
         @endif
-      
 
     </div>
     <div class="card-body">

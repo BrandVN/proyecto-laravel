@@ -104,7 +104,7 @@ class VotoController extends Controller
                     $message=$e->getMessage();
             }
         
-        return view('message',compact('message','success'));
+        return view ('message',compact('message','success'));
         
     }  
 
@@ -184,8 +184,7 @@ class VotoController extends Controller
             $message=$e->getMessage();
         }
     
-        return view('message',compact('message','success'));
-    
+      return view ('message',compact('message','success'));
        
     }
 
