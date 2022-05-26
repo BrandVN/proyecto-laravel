@@ -1,26 +1,36 @@
-<?phpphp
+<?php
   
-namespace App\Http\Controllers; App\Http\Controllers;
+namespace App\Http\Controllers;
   
 use Illuminate\Http\Request;
-use PDF;
+use mikehaertl\wkhtmlto\Pdf;
   
 class PDFController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Write code on Construct
      *
      * @return \Illuminate\Http\Response
      */
-    public function generatePDF()
+    public function preview()
     {
-        $data = [
-            'title' => 'Welcome to ItSolutionStuff.com',
-            'date' => date('m/d/Y')
-        ];
-          
-        $pdf = PDF::loadView('myPDF', $data);
-    
-        return $pdf->download('itsolutionstuff.pdf');
+        return view('chart');
+    }
+  
+    /**
+     * Write code on Construct
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function download()
+    {
+        $render = view('chart')->render();
+  
+        $pdf = new Pdf;
+        $pdf->addPage($render);
+        $pdf->setOptions(['javascript-delay' => 5000]);
+        $pdf->saveAs(public_path('report.pdf'));
+   
+        return response()->download(public_path('report.pdf'));
     }
 }

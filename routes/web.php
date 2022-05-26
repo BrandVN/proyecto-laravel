@@ -22,21 +22,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('casilla/pdf', [CasillaController::class, 'generatepdf']);
 Route::resource('casilla', CasillaController::class);
 Route::resource('candidato', CandidatoController::class);
 Route::resource('eleccion', EleccionController::class);
 Route::resource('voto', VotoController::class);
 
+Route::get('preview', 'App\Http\Controllers\PDFController@preview');
+Route::get('download', 'App\Http\Controllers\PDFController@download')->name('download');
 
 Route::get('login',[LoginController::class,'index'])->name('login');
-
-Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
-
 Route::get('/login','App\Http\Controllers\Auth\LoginController@index');
 Route::get('/login/facebook', 'App\Http\Controllers\Auth\LoginController@redirectToFacebookProvider');
 Route::get('/login/facebook/callback', 'App\Http\Controllers\Auth\LoginController@handleProviderFacebookCallback');
 
-    Route::middleware(['auth'])->group(function(){
-    Route::resource('voto',VotoController::class);
+Route::middleware(['auth'])->group(function(){
+Route::resource('voto',VotoController::class);
+
 });
