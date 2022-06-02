@@ -56,6 +56,7 @@
 				<ul>
 					<li><a href="http://localhost:8888/casilla/create">Añadir</a></li>
 					<li><a href="http://localhost:8888/casilla">Listar</a></li>
+                    <li><a target="_blank" href="{{ asset('casilla/pdf') }}">Generar PDF</a></li>
 				</ul>
 			</li>
             
@@ -71,7 +72,7 @@
 					<li><a href="http://localhost:8888/voto">Listar</a></li>
 				</ul>
 			</li>
-      <li><a xs>⠀⠀⠀⠀⠀⠀</a></li>
+      
       <li><a xs>⠀⠀⠀⠀⠀⠀</a></li>
       <li><a xs>⠀⠀⠀⠀⠀⠀</a></li>
       <li><a xs>⠀⠀⠀⠀⠀⠀</a></li>
